@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Fetch and Display Bacon Ipsum Data </title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="font-[Poppins]">
+
+    <div class="2xl:container grid grid-cols-1"> 
+
+        <div class="h-32 bg-red-600 flex flex-col justify-center">
+            <p class="text-[30px] text-white mx-7"> Fetch and Display Bacon Ipsum Data with Modern Async/Await Syntax</p>
+        </div>
+
+        <div class="bg-slate-300 w-[90%] h-[90%] m-14">
+            <p class="m-5" id="para"> </p>
+        </div>
+    
+    </div>
+
+    <script>
+
+        const para = document.getElementById("para")
+
+        async function FetchData() {
+            const data = await fetch("https://baconipsum.com/api/?type=all");
+            const jsonData = await data.json()
+            para.textContent = jsonData
+        }
+        FetchData()
+
+    </script>
+
+</body>
+
+</html>
