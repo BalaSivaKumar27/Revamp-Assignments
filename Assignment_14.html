@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Fetch and Display Bacon Ipsum Data </title>
+</head>
+<body>
+
+    <p id="para"></p>
+    
+    <script>
+
+        const para = document.getElementById("para")
+
+        async function FetchData() {
+            const data = await fetch("https://baconipsum.com/api/?type=all");
+            const jsonData = await data.json()
+            para.textContent = jsonData
+        }
+        FetchData()
+
+    </script>
+
+</body>
+</html>
