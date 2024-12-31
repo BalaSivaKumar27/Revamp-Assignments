@@ -17,6 +17,7 @@
         The shortcut to create an Emmet HTML boilerplate is typing "!" and pressing Tab or Enter.
 
 5. What is the structure of HTML ?
+
    <!DOCTYPE html>
    <html lang="en">
    <head>
@@ -88,6 +89,7 @@ iii) Button Tag
                 Elements represent the complete structure of a specific part of the webpage.
    
        Example: <p>This is a paragraph.</p>
+
 
 # CSS : 
 
