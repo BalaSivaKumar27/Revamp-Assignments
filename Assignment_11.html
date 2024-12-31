@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Password</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-[Poppins] bg-slate-300">
+
+    <div class="h-[100vh] flex flex-col justify-center items-center">
+        <div class="h-[550px] w-[400px] bg-white shadow-2xl rounded-3xl border-[4px] border-black/90">
+
+            <form id="form" class="m-9 flex flex-col justify-around h-[70%]">
+
+                <h1 class="text-center text-[30px]">Update Password</h1>
+
+                <div class="mt-14">
+                    <label for="newp" class="text-[15px]">New Password:</label>
+                    <br>
+                    <input type="password" placeholder="Create your New Password" id="newp"
+                        class="border-black text-black my-2 px-3 border-2 w-[100%] h-[50px] rounded-sm" />
+                    <p id="para1" class="text-red-500 text-[15px]"></p>
+                </div>
+
+                <div class="mt-6">
+                    <label for="conform" class="text-[15px]">Confirm Password:</label>
+                    <br>
+                    <input type="password" placeholder="Confirm your New Password" id="conform"
+                        class="border-black text-black my-2 px-3 border-2 w-[100%] h-[50px] rounded-sm" />
+                    <p id="para2" class="text-red-500 text-[15px]"></p>
+                    <p id="para3" class="text-green-500 text-[15px]"></p>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <button class="text-[20px] px-7 py-1 bg-sky-400 border-black border-[1px]" type="submit">Update</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById("form");
+        const newp = document.getElementById("newp");
+        const conform = document.getElementById("conform");
+        const para1 = document.getElementById("para1");
+        const para2 = document.getElementById("para2");
+        const para3 = document.getElementById("para3");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            advancedValidation(newp, conform);
+        });
+
+        function advancedValidation(newpInput, conformInput) {
+            const newpText = newpInput.value.trim();
+            const conformText = conformInput.value.trim();
+
+            // Clear all messages first
+            para1.textContent = "";
+            para2.textContent = "";
+            para3.textContent = "";
+
+            if (newpText === "") {
+                para1.textContent = "New Password is required.";
+            } else if (newpText !== conformText) {
+                para2.textContent = "Passwords do not match.";
+            } else {
+                para3.textContent = "Passwords successfully match!";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
