@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignmetn 17</title>
+
+    <!-- React Development -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- React production -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Static HTML -->
+    <section>
+        <h1 class="heading">Hello World</h1>
+        <div id="1">
+            <div id="2">
+                <h1 class="heading">Hello World</h1>
+                <h1 class="heading">Hello World</h1>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Using JavaScript to Manipulate the DOM  -->
+    <section>
+        <div id="root1"></div>
+
+        <script>
+            // Create elements
+            const h1 = document.createElement("h1");
+            h1.className = "heading";
+            h1.textContent = "Hello World";
+
+            const nestedDiv1 = document.createElement("div");
+            nestedDiv1.id = "2";
+
+            const outerDiv1 = document.createElement("div");
+            outerDiv1.id = "1";
+
+            // Add nested elements
+            nestedDiv1.appendChild(h1.cloneNode(true));
+            nestedDiv1.appendChild(h1.cloneNode(true));
+            outerDiv1.appendChild(nestedDiv1);
+
+            // Append to root
+            document.getElementById("root1").appendChild(outerDiv1);
+        </script>
+    </section>
+
+    <!-- Using React (with CDN Links) -->
+    <section>
+        <div id="root"></div>
+
+        <script>
+            // Create React elements
+            const heading = React.createElement("h1", { className: "heading" }, "Hello World");
+            const nestedDiv = React.createElement(
+                "div",
+                { id: "2" },
+                heading,
+                heading
+            );
+            const outerDiv = React.createElement("div", { id: "1" }, nestedDiv);
+
+            // Render to the root
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(outerDiv);
+        </script>
+    </section>
+
+
+</body>
+
+</html>
